@@ -1,0 +1,14 @@
+ -
+  name: $ddt{name}
+  parameterize:
+    name-room-token-assert_str: /datas/ranAsPlan_data.yaml
+  request:
+    method: post
+    url: /jlcloud/simulation/$ddt{room}/ranAsPlan
+    json:
+      time: $ddt{time}
+    headers:
+      'Content-Type': 'application/json'
+      'X-Token': $ddt{token}
+  validate:
+    - equals: { status_code: 200 }

@@ -1,0 +1,4 @@
+# DDT(data driver test)数据驱动yaml文件，对应的yaml测试用例文件为：userinfo.yaml
+- ['name','token','assert_str']
+- ['正确token成功获取用户信息','${read_extract_data(token)}','data']
+- ['错误token无法获取用户信息','1', 40004]

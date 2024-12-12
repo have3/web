@@ -1,0 +1,4 @@
+# DDT(data driver test)数据驱动yaml文件，对应的yaml测试用例文件为：city_type.yaml
+- ['name','token','assert_str']
+- ['正确token成功获取城市列表','${read_extract_data(token)}','data']
+- ['错误token无法获取城市列表','1', 40004]

@@ -1,0 +1,5 @@
+# DDT(data driver test)数据驱动yaml文件，对应的yaml测试用例文件为：mapid.yaml
+- ['name','citycode','token','assert_str']
+- ['正确token和code成功获取地图id','${read_extract_data(citycode)}','${read_extract_data(token)}','data']
+- ['错误token和正确code无法获取mapid','${read_extract_data(citycode)}','1', 40004]
+- ['正确token和错误code无法获取mapid','123456','${read_extract_data(token)}', 200]

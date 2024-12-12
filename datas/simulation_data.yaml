@@ -1,0 +1,4 @@
+# DDT(data driver test)数据驱动yaml文件，对应的yaml测试用例文件为：simulation.yaml
+- ['name','mapid','prdType','token','assert_str']
+- ['mapid正确，prdType=现地仿真系统','${read_extract_data(mapid)}','','${read_extract_data(token)}','data']
+- ['mapid正确，prdType为空','${read_extract_data(mapid)}','1','${read_extract_data(token)}','data']

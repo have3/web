@@ -1,0 +1,14 @@
+-
+  name: $ddt{name}
+  parameterize:
+    name-token-assert_str: /datas/userinfo_data.yaml
+  request:
+    method: get
+    url: /jlcloud/api/login/getUserInfo
+    params:
+     token: $ddt{token}
+    headers:
+      'Content-Type': 'application/json'
+  validate:
+    - equals: { status_code: 200 }
+    - contains: $ddt{assert_str}

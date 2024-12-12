@@ -1,0 +1,4 @@
+# DDT(data driver test)数据驱动yaml文件，对应的yaml测试用例文件为：ranAsPlan.yaml
+- ['name','room','time','token']
+- ['正确的time按计划行车','${read_extract_data(room)}','${get_random_time()}','${read_extract_data(token)}']
+- ['时间为空按计划行车','${read_extract_data(room)}','','${read_extract_data(token)}']

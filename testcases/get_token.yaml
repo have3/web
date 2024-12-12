@@ -1,0 +1,21 @@
+-
+  name: $ddt{name}
+  parameterize:
+    name-account-password-project-assert_str: /datas/get_token_data.yaml
+  request:
+    method: post
+    url: /jlcloud/api/login
+    headers:
+      'Content-Type': 'application/json'
+    json:
+      account: $ddt{account}
+      password: ${md5($ddt{password})}
+      project: $ddt{project}
+      teacherLogin: false
+      clientId: "1"
+      secret: "jk"
+  extract:
+    token: '"data":"(.*?)"'
+  validate:
+    - equals: {status_code: 200}
+    - contains: $ddt{assert_str}

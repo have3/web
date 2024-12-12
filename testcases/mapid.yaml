@@ -1,0 +1,16 @@
+-
+  name: $ddt{name}
+  parameterize:
+    name-citycode-token-assert_str: /datas/mapid_data.yaml
+  request:
+    method: get
+    url: /jlcloud/api/mapSystem/city/$ddt{citycode}
+    data: None
+    headers:
+      'Content-Type': 'application/json'
+      'X-Token': $ddt{token}
+  extract:
+    mapid: $.data[6].id
+  validate:
+    - equals: { status_code: 200 }
+    - contains: $ddt{assert_str}
