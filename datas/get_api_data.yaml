@@ -1,0 +1,5 @@
+# DDT(data driver test)数据驱动yaml文件，对应的yaml测试用例文件为：get_api.yaml
+- ['name','token','username','password','assert_str']
+- ['登录成功','token','root','123456','']
+- ['登录失败密码错误','token','root','123456','']
+- ['登录失败密码为空','token','root','123456','']

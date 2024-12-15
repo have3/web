@@ -1,0 +1,19 @@
+-
+  name: $ddt{name}
+  parameterize:
+    name-account-password-project-assert_str: /datas/get_api_data.yaml
+  request:
+    method: post
+    url: /login
+    headers:
+      'Content-Type': 'application/json'
+      'X-Token': $ddt{token}
+    json:
+      username: $ddt{username}
+      password: $ddt{password}
+      teacherLogin: false
+      clientId: "1"
+      secret: "jk"
+  validate:
+    - equals: { status_code: 500 }
+    - contains: $ddt{assert_str}
